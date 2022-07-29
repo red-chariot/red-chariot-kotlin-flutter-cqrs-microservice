@@ -1,0 +1,23 @@
+variables:
+  - name: Project Name
+    type: String
+    map: project-name
+  - name: GitHub Repo Owner
+    type: GitHubRepoOwner
+    map: github-repo-owner
+  - name: GitHub Repo Name
+    type: GitHubRepoName
+    map: github-repo-name
+  - name: Package Name
+    type: PackageName
+    map: package-name
+
+kotlin:
+  mapping:
+    module:
+      - from: chariot-assembly
+        to: ${github-repo-name}-assembly
+    package:
+      - from: red.chariot
+        to: ${package-name}
+flutter:

@@ -1,0 +1,17 @@
+.git
+/.gradle/
+
+**/build/
+**/out/
+**/bin/
+
+.project
+
+/.idea/*
+!.idea/codeStyles/
+
+**/.gradle/*
+
+**/main/protoGen
+
+**/.attach_pid*
