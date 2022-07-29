@@ -13,4 +13,7 @@ plugins {
 }
 
 rootProject.name = "red-chariot"
-include("red-chariot-assembly")
+include("red-chariot-command")
+include("red-chariot-query")
+include("red-chariot-ui")
+include("red-chariot-it")
