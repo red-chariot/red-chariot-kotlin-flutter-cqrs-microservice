@@ -15,7 +15,7 @@ variables:
 kotlin:
   mapping:
     module:
-      - from: chariot-assembly
+      - from: red-chariot-assembly
         to: ${github-repo-name}-assembly
     package:
       - from: red.chariot
