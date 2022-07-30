@@ -556,7 +556,7 @@ style:
     maxJumpCount: 1
   MagicNumber:
     active: true
-    excludes: [ '**/*-it/**', '**/test/**', '**/androidTest/**', '**/commonTest/**', '**/jvmTest/**', '**/jsTest/**', '**/iosTest/**', '**/*.kts', '**/nccs-it/src/integration/**', '**/nccs-it/src/main/kotlin/com/telus/nccs/service/it/aggregate/**' ]
+    excludes: [ '**/*-it/**', '**/test/**', '**/androidTest/**', '**/commonTest/**', '**/jvmTest/**', '**/jsTest/**', '**/iosTest/**', '**/*.kts', '**/nccs-it/src/integration/**' ]
     ignoreNumbers:
       - '-1'
       - '0'
