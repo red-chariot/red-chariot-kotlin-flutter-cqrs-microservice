@@ -1,0 +1,10 @@
+<component name="ProjectRunConfigurationManager">
+  <configuration default="false" name="CommandApp" type="JetRunConfigurationType">
+    <option name="MAIN_CLASS_NAME" value="red.chariot.command.CommandAppKt" />
+    <module name="red-chariot.red-chariot-command.main" />
+    <shortenClasspath name="NONE" />
+    <method v="2">
+      <option name="Make" enabled="true" />
+    </method>
+  </configuration>
+</component>

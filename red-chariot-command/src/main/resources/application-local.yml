@@ -1,0 +1,123 @@
+spring:
+  datasource:
+    url: jdbc:postgresql://localhost:5432/postgres
+    username: postgres
+    password: postgres
+    hikari:
+      connectionTimeout: 20000
+      maximumPoolSize: 5
+  jpa:
+    properties:
+    ###### generate schema ########
+    #      javax:
+    #        persistence:
+    #          schema-generation:
+    #            create-source: metadata
+    #            scripts:
+    #              action: create
+    #              create-target: happykiddo-assembly/build/db/create.sql
+    hibernate:
+      ddl-auto: create
+  cloud:
+    stream:
+      function:
+        definition: handleAggregateEvents;handleAppUserEvents;handleCenterEvents;handleCommEvents;handleEnrollmentEvents;handleMembershipEvents;handleStaffEvents;handleActionEvents;handleSseNotifications
+      bindings:
+        eventBus-out-0:
+          destination: projects/happykiddo/topics/happykiddo-eventbus-np-local
+        handleAggregateEvents-in-0:
+          destination: projects/happykiddo/topics/happykiddo-eventbus-np-local
+          group: aggregate-group
+          consumer:
+            concurrency: 1
+            max-attempts: 1
+        handleAppUserEvents-in-0:
+          destination: projects/happykiddo/topics/happykiddo-eventbus-np-local
+          group: appuser-group
+          consumer:
+            concurrency: 1
+            max-attempts: 1
+        handleCenterEvents-in-0:
+          destination: projects/happykiddo/topics/happykiddo-eventbus-np-local
+          group: center-group
+          consumer:
+            concurrency: 1
+            max-attempts: 1
+        handleCommEvents-in-0:
+          destination: projects/happykiddo/topics/happykiddo-eventbus-np-local
+          group: comm-group
+          consumer:
+            concurrency: 1
+            max-attempts: 1
+        handleEnrollmentEvents-in-0:
+          destination: projects/happykiddo/topics/happykiddo-eventbus-np-local
+          group: enrollment-group
+          consumer:
+            concurrency: 1
+            max-attempts: 1
+        handleMembershipEvents-in-0:
+          destination: projects/happykiddo/topics/happykiddo-eventbus-np-local
+          group: membership-group
+          consumer:
+            concurrency: 1
+            max-attempts: 1
+        handleStaffEvents-in-0:
+          destination: projects/happykiddo/topics/happykiddo-eventbus-np-local
+          group: staff-group
+          consumer:
+            concurrency: 1
+            max-attempts: 1
+        handleActionEvents-in-0:
+          destination: projects/happykiddo/topics/happykiddo-eventbus-np-local
+          group: action-group
+          consumer:
+            concurrency: 1
+            max-attempts: 1
+        sseBus-out-0:
+          destination: projects/happykiddo/topics/happykiddo-ssebus-np-local
+        handleSseNotifications-in-0:
+          destination: projects/happykiddo/topics/happykiddo-ssebus-np-local
+          group: sse-group
+          consumer:
+            concurrency: 1
+            max-attempts: 1
+    gcp:
+      project-id: happykiddo
+      pubsub:
+        subscriber:
+          retry:
+            max-attempts: 1
+          executor-threads: 1
+          parallel-pull-count: 1
+        emulator-host: 'localhost:8085'
+  autoconfigure:
+    exclude: com.google.cloud.spring.autoconfigure.storage.GcpStorageAutoConfiguration
+  flyway:
+    enabled: false
+
+integration:
+  jwt-secret: Password1Password1Password1Password1Password1Password1Password1Password1Password1Password1Password1Password1Password1Password1
+  gateway:
+    rootUri: http://localhost:8080
+    connection-timeout: 20
+    read-timeout: 20
+    max-default-connection-per-route: 50
+    max-connections-per-pool: 200
+    client-id: admin+service@happykiddo.io
+    client-secret: Password11
+  ui:
+    rootUri: http://localhost
+  mail:
+    host: localhost
+    port: 3025
+    noreply:
+      user: noreply@happykiddo.io
+      password: Password1
+    info:
+      user: info@happykiddo.io
+      password: Password1
+  sql:
+    db-admin-password: postgres
+    app-admin-password: postgres
+    read-write-password: postgres
+    read-only-password: postgres

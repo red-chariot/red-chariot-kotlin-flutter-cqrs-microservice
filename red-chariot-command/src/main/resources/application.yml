@@ -1,0 +1,18 @@
+management:
+  endpoints:
+    web.exposure.include: health, openapi, swaggerui
+  security:
+    enabled: false
+spring:
+  jpa:
+    properties:
+      hibernate:
+        jdbc:
+          lob:
+            non_contextual_creation: true
+  main:
+    allow-bean-definition-overriding: true
+    #    TODO Remove when have time to debug
+    allow-circular-references: true
+
+

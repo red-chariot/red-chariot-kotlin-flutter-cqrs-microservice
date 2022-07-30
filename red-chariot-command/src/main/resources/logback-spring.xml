@@ -1,0 +1,33 @@
+<configuration>
+    <logger name="org.springframework.cloud.stream.binding.DispatchingStreamListenerMessageHandler" level="ERROR"/>
+    <logger name="org.springframework.cloud.function.context.catalog.BeanFactoryAwareFunctionRegistry" level="ERROR"/>
+    <logger name="org.springframework.cloud.function.context.catalog.SimpleFunctionRegistry" level="ERROR"/>
+    <logger name="org.springframework.cloud.stream.binder.BinderErrorChannel" level="ERROR"/>
+    <logger name="org.springframework.cloud.stream.binder.DefaultBinderFactory" level="ERROR"/>
+    <logger name="com.google.cloud.spring.pubsub.integration.inbound.PubSubInboundChannelAdapter" level="ERROR"/>
+    <logger name="org.springframework.context.support.PostProcessorRegistrationDelegate$BeanPostProcessorChecker"
+            level="WARN"/>
+
+    <!--logger name="org.hibernate.SQL" level="DEBUG"/-->
+    <springProfile name="local">
+        <appender name="CONSOLE" class="ch.qos.logback.core.ConsoleAppender">
+            <encoder>
+                <pattern>%d{HH:mm:ss.SSS} [%thread] %-5level %marker %logger{36} - %msg - %mdc%n</pattern>
+            </encoder>
+        </appender>
+        <root level="INFO">
+            <appender-ref ref="CONSOLE"/>
+        </root>
+        <logger name="com.google.cloud.spring.core.DefaultCredentialsProvider" level="ERROR"/>
+    </springProfile>
+    <springProfile name="!local">
+        <appender name="JSON" class="ch.qos.logback.core.ConsoleAppender">
+            <encoder class="ch.qos.logback.core.encoder.LayoutWrappingEncoder">
+                <layout class="red.chariot.core.log.LogLayout"/>
+            </encoder>
+        </appender>
+        <root level="INFO">
+            <appender-ref ref="JSON"/>
+        </root>
+    </springProfile>
+</configuration>
