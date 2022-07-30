@@ -24,5 +24,4 @@ allprojects {
 dependencies {
     implementation(project(":red-chariot-command:command-api"))
     implementation(project(":red-chariot-command:command-service"))
-    implementation(project(":red-chariot-command:command-eventbus"))
 }
