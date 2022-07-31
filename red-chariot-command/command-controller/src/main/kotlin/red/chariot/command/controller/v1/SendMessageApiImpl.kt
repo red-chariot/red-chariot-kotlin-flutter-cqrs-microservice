@@ -1,4 +1,4 @@
-package red.chariot.controller.v1
+package red.chariot.command.controller.v1
 
 import java.util.UUID
 import org.springframework.context.annotation.Bean

@@ -1,8 +1,12 @@
 <component name="ProjectRunConfigurationManager">
   <configuration default="false" name="CommandApp" type="JetRunConfigurationType">
+    <envs>
+      <env name="INFO_APP_BUILD" value="33" />
+    </envs>
     <option name="MAIN_CLASS_NAME" value="red.chariot.command.CommandAppKt" />
     <module name="red-chariot.red-chariot-command.main" />
     <shortenClasspath name="NONE" />
+    <option name="VM_PARAMETERS" value="-Dspring.profiles.active=local" />
     <method v="2">
       <option name="Make" enabled="true" />
     </method>
