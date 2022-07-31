@@ -1,0 +1,14 @@
+<component name="ProjectRunConfigurationManager">
+  <configuration default="false" name="MessagingApp" type="JetRunConfigurationType">
+    <envs>
+      <env name="INFO_APP_BUILD" value="33" />
+    </envs>
+    <option name="MAIN_CLASS_NAME" value="red.chariot.messaging.MessagingAppKt" />
+    <module name="red-chariot.red-chariot-query.red-chariot-messaging.main" />
+    <shortenClasspath name="NONE" />
+    <option name="VM_PARAMETERS" value="-Dspring.profiles.active=local" />
+    <method v="2">
+      <option name="Make" enabled="true" />
+    </method>
+  </configuration>
+</component>

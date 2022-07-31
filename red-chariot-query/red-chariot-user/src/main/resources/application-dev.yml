@@ -1,0 +1,88 @@
+spring:
+  datasource:
+    url: jdbc:postgresql://localhost:5432/happykiddo-db-np-dev
+    username: postgres
+    password: postgres
+    hikari:
+      connectionTimeout: 20000
+      maximumPoolSize: 5
+  jpa:
+    hibernate:
+      ddl-auto: create
+  cloud:
+    stream:
+      function:
+        definition: handleAggregateEvents;handleAppUserEvents;handleCenterEvents;handleCommEvents;handleEnrollmentEvents;handleMembershipEvents;handleStaffEvents;handleActionEvents;handleSseNotifications
+      bindings:
+        eventBus-out-0:
+          destination: projects/happykiddo/topics/happykiddo-eventbus-np-dev
+        handleAggregateEvents-in-0:
+          destination: projects/happykiddo/topics/happykiddo-eventbus-np-dev
+          group: aggregate-group
+        handleAppUserEvents-in-0:
+          destination: projects/happykiddo/topics/happykiddo-eventbus-np-dev
+          group: appuser-group
+        handleCenterEvents-in-0:
+          destination: projects/happykiddo/topics/happykiddo-eventbus-np-dev
+          group: center-group
+        handleCommEvents-in-0:
+          destination: projects/happykiddo/topics/happykiddo-eventbus-np-dev
+          group: comm-group
+        handleEnrollmentEvents-in-0:
+          destination: projects/happykiddo/topics/happykiddo-eventbus-np-dev
+          group: enrollment-group
+        handleMembershipEvents-in-0:
+          destination: projects/happykiddo/topics/happykiddo-eventbus-np-dev
+          group: membership-group
+        handleStaffEvents-in-0:
+          destination: projects/happykiddo/topics/happykiddo-eventbus-np-dev
+          group: staff-group
+        handleActionEvents-in-0:
+          destination: projects/happykiddo/topics/happykiddo-eventbus-np-dev
+          group: action-group
+        sseBus-out-0:
+          destination: projects/happykiddo/topics/happykiddo-ssebus-np-dev
+        handleSseNotifications-in-0:
+          destination: projects/happykiddo/topics/happykiddo-ssebus-np-dev
+          group: sse-group
+    gcp:
+      pubsub:
+        project-id: happykiddo
+        subscriber:
+          executor-threads: 1
+          parallel-pull-count: 1
+  autoconfigure:
+    exclude: com.google.cloud.spring.autoconfigure.storage.GcpStorageAutoConfiguration
+  flyway:
+    enabled: false
+
+integration:
+  jwt-secret: ${sm://jwt-secret}
+  gateway:
+    rootUri: https://api-dev.happykiddo.io
+    connection-timeout: 20
+    read-timeout: 20
+    max-default-connection-per-route: 50
+    max-connections-per-pool: 200
+    client-id: admin+service@happykiddo.io
+    client-secret: ${sm://client-secret}
+  ui:
+    rootUri: https://app-dev.happykiddo.io
+  sql:
+    db-admin-username: db_admin_user
+    db-admin-password: ${sm://db-admin-user-secret}
+    app-admin-username: app_admin_user
+    app-admin-password: ${sm://app-admin-user-secret}
+    read-write-username: read_write_user
+    read-write-password: ${sm://read-write-user-secret}
+    read-only-username: read_only_user
+    read-only-password: ${sm://read-only-user-secret}
+  mail:
+    host: happykiddo-greenmail
+    port: 3025
+    noreply:
+      user: noreply@happykiddo.io
+      password: Password1
+    info:
+      user: info@happykiddo.io
+      password: Password1
