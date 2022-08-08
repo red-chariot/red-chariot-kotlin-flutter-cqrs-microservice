@@ -23,7 +23,6 @@ allprojects {
         implementation("org.springframework.cloud:spring-cloud-stream")
         implementation(project(":red-chariot-command:command-api"))
         implementation(project(":red-chariot-core"))
-        testImplementation("org.hamcrest:java-hamcrest")
         testImplementation("org.jetbrains.kotlin:kotlin-test")
         testImplementation("org.springframework.boot:spring-boot-starter-aop")
         testImplementation("org.springframework.boot:spring-boot-starter-test")

@@ -1,0 +1,111 @@
+[versions]
+apache-commons = "1.9"
+assertk-jvm = "0.23.1"
+detekt = "1.21.0-RC2"
+google-cloud = "3.1.0"
+green-mail = "1.5.10"
+guava = "30.1-jre"
+h2 = "1.4.199"
+hibernate-validator = "7.0.5.Final"
+java-hamcrest = "2.0.0.0"
+javax-validation = "2.0.1.Final"
+hibernate-jpamodelgen = "5.6.10.Final"
+jsonwebtoken = "0.11.2"
+kotlin = "1.7.10"
+kubernetes-client = "10.0.1"
+logback-core = "1.2.9"
+logback-contrib = "0.1.5"
+logback-extensions = "0.1.5"
+selenium = "3.141.59"
+spring-boot = "2.7.2"
+spring-cloud = "2021.0.1"
+spring-dependency-management = "1.0.12.RELEASE"
+spring-doc = "1.6.5"
+spring-mock = "2.0.8"
+wiremock-jre8 = "2.27.2"
+
+[libraries]
+assertk-jvm = { module = "com.willowtreeapps.assertk:assertk-jvm", version.ref = "assertk-jvm" }
+commons-lang3 = { module = "org.apache.commons:commons-lang3" }
+commons-text = { module = "org.apache.commons:commons-text", version.ref = "apache-commons" }
+greenmail = { module = "com.icegreen:greenmail", version.ref = "green-mail" }
+guava = { module = "com.google.guava:guava", version.ref = "guava" }
+h2 = { module = "com.h2database:h2", version.ref = "h2" }
+hibernate-core = { module = "org.hibernate:hibernate-core" }
+hibernate-jpamodelgen = { module = "org.hibernate:hibernate-jpamodelgen", version.ref = "hibernate-jpamodelgen" }
+hibernate-validator = { module = "org.hibernate:hibernate-validator", version.ref = "hibernate-validator" }
+httpclient = { module = "org.apache.httpcomponents:httpclient" }
+httpmime = { module = "org.apache.httpcomponents:httpmime" }
+jackson-databind = { module = "com.fasterxml.jackson.core:jackson-databind" }
+jackson-module-kotlin = { module = "com.fasterxml.jackson.module:jackson-module-kotlin" }
+java-hamcrest = { module = "org.hamcrest:java-hamcrest", version.ref = "java-hamcrest" }
+jjwt-api = { module = "io.jsonwebtoken:jjwt-api", version.ref = "jsonwebtoken" }
+jjwt-impl = { module = "io.jsonwebtoken:jjwt-impl", version.ref = "jsonwebtoken" }
+jjwt-jackson = { module = "io.jsonwebtoken:jjwt-jackson", version.ref = "jsonwebtoken" }
+junit-platform-launcher = { module = "org.junit.platform:junit-platform-launcher" }
+kotlin-compiler-embeddable = { module = "org.jetbrains.kotlin:kotlin-compiler-embeddable" }
+kotlin-stdlib-jdk8 = { module = "org.jetbrains.kotlin:kotlin-stdlib-jdk8" }
+kotlin-test = { module = "org.jetbrains.kotlin:kotlin-test" }
+kubernetes-client-java = { module = "io.kubernetes:client-java", version.ref = "kubernetes-client" }
+logback-classic = { module = "ch.qos.logback:logback-classic", version.ref = "logback-core" }
+logback-jackson = { module = "ch.qos.logback.contrib:logback-jackson", version.ref = "logback-contrib" }
+logback-json-classic = { module = "ch.qos.logback.contrib:logback-json-classic", version.ref = "logback-contrib" }
+mockito-core = { module = "org.mockito:mockito-core" }
+postgresql = { module = "org.postgresql:postgresql" }
+selenium-chrome-driver = { module = "org.seleniumhq.selenium:selenium-chrome-driver", version.ref = "selenium" }
+selenium-firefox-driver = { module = "org.seleniumhq.selenium:selenium-firefox-driver", version.ref = "selenium" }
+selenium-java = { module = "org.seleniumhq.selenium:selenium-java", version.ref = "selenium" }
+spring-integration-mail = { module = "org.springframework.integration:spring-integration-mail" }
+spring-mock = { module = "org.springframework:spring-mock", version.ref = "spring-mock" }
+spring-security-config = { module = "org.springframework.security:spring-security-config" }
+springdoc-openapi-kotlin = { module = "org.springdoc:springdoc-openapi-kotlin", version.ref = "spring-doc" }
+springdoc-openapi-ui = { module = "org.springdoc:springdoc-openapi-ui", version.ref = "spring-doc" }
+validation-api = { module = "javax.validation:validation-api", version.ref = "javax-validation" }
+wiremock-jre8 = { module = "com.github.tomakehurst:wiremock-jre8", version.ref = "wiremock-jre8" }
+
+########################################################################
+# Spring Boot
+########################################################################
+# Aside from the BOM, none of the spring boot dependencies have a version defined. This is intentional.
+spring-boot-bom = { module = "org.springframework.boot:spring-boot-dependencies", version.ref = "spring-boot" }
+spring-boot-configuration-processor = { module = "org.springframework.boot:spring-boot-configuration-processor" }
+spring-boot-starter-core = { module = "org.springframework.boot:spring-boot-starter" }
+spring-boot-starter-data-jpa = { module = "org.springframework.boot:spring-boot-starter-data-jpa" }
+spring-boot-starter-data-rest = { module = "org.springframework.boot:spring-boot-starter-data-rest" }
+spring-boot-starter-mail = { module = "org.springframework.boot:spring-boot-starter-mail" }
+spring-boot-starter-security = { module = "org.springframework.boot:spring-boot-starter-security" }
+spring-boot-starter-test = { module = "org.springframework.boot:spring-boot-starter-test" }
+spring-boot-starter-web = { module = "org.springframework.boot:spring-boot-starter-web" }
+spring-boot-starter-thymeleaf = { module = "org.springframework.boot:spring-boot-starter-thymeleaf" }
+spring-boot-starter-actuator = { module = "org.springframework.boot:spring-boot-starter-actuator" }
+spring-boot-starter-cache = { module = "org.springframework.boot:spring-boot-starter-cache" }
+
+########################################################################
+# Spring Cloud
+########################################################################
+# Aside from the BOM, none of the spring cloud dependencies have a version defined. This is intentional.
+spring-cloud-bom = { module = "org.springframework.cloud:spring-cloud-dependencies", version.ref = "spring-cloud" }
+spring-cloud-stream = { module = "org.springframework.cloud:spring-cloud-stream" }
+spring-cloud-function-kotlin = { module = "org.springframework.cloud:spring-cloud-function-kotlin" }
+spring-cloud-starter-function-web = { module = "org.springframework.cloud:spring-cloud-starter-function-web" }
+
+########################################################################
+# Spring Cloud GCP
+########################################################################
+# Aside from the BOM, none of the spring cloud GCP dependencies have a version defined. This is intentional.
+spring-cloud-gcp-bom = { module = "com.google.cloud:spring-cloud-gcp-dependencies", version.ref = "google-cloud" }
+spring-cloud-gcp-pubsub-stream-binder = { module = "com.google.cloud:spring-cloud-gcp-pubsub-stream-binder" }
+spring-cloud-gcp-starter-core = { module = "com.google.cloud:spring-cloud-gcp-starter" }
+spring-cloud-gcp-starter-pubsub = { module = "com.google.cloud:spring-cloud-gcp-starter-pubsub" }
+spring-cloud-gcp-starter-secretmanager = { module = "com.google.cloud:spring-cloud-gcp-starter-secretmanager" }
+spring-cloud-gcp-starter-storage = { module = "com.google.cloud:spring-cloud-gcp-starter-storage" }
+
+[plugins]
+spring-boot = { id = "org.springframework.boot", version.ref = "spring-boot" }
+spring-dependency-management = { id = "io.spring.dependency-management", version.ref = "spring-dependency-management" }
+kotlin-jvm = { id = "org.jetbrains.kotlin.jvm", version.ref = "kotlin" }
+kotlin-spring = { id = "org.jetbrains.kotlin.plugin.spring", version.ref = "kotlin" }
+kotlin-jpa = { id = "org.jetbrains.kotlin.plugin.jpa", version.ref = "kotlin" }
+kotlin-kapt = { id = "org.jetbrains.kotlin.kapt", version.ref = "kotlin" }
+kotlin-noarg = { id = "org.jetbrains.kotlin.plugin.noarg", version.ref = "kotlin" }
+detekt = { id = "io.gitlab.arturbosch.detekt", version.ref = "detekt" }

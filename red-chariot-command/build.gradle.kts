@@ -1,23 +1,17 @@
-allprojects {
-
-    apply(plugin = "kotlin-spring")
-
-    dependencies {
-        implementation("com.fasterxml.jackson.core:jackson-databind")
-        implementation("com.fasterxml.jackson.module:jackson-module-kotlin")
-        implementation("com.google.cloud:spring-cloud-gcp-pubsub-stream-binder")
-        implementation("javax.validation:validation-api")
-        implementation("org.jetbrains.kotlin:kotlin-stdlib-jdk8")
-        implementation("org.springframework.cloud:spring-cloud-stream")
-        implementation("org.springframework.boot:spring-boot-starter-actuator")
-        implementation("org.springframework.cloud:spring-cloud-function-kotlin")
-        implementation("org.springframework.cloud:spring-cloud-starter-function-web")
-        implementation(project(":red-chariot-core"))
-    }
+@Suppress("DSL_SCOPE_VIOLATION") // TODO remove when https://youtrack.jetbrains.com/issue/KTIJ-19369 is fixed
+plugins {
+    alias(libs.plugins.kotlin.spring)
 }
 
 dependencies {
+
+    implementation(libs.spring.boot.starter.data.jpa)
+    implementation(libs.spring.boot.starter.security)
+    implementation(libs.jackson.module.kotlin)
+    implementation(libs.validation.api)
+    implementation(libs.hibernate.validator)
+
+    implementation(project(":red-chariot-core"))
     implementation(project(":red-chariot-command:command-api"))
-    implementation(project(":red-chariot-command:command-controller"))
     implementation(project(":red-chariot-command:command-service"))
 }
