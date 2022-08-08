@@ -1,36 +1,20 @@
-allprojects {
-
-    apply(plugin = "kotlin-spring")
-    apply(plugin = "kotlin-jpa")
-
-    dependencies {
-        implementation("com.fasterxml.jackson.core:jackson-databind")
-        implementation("com.fasterxml.jackson.module:jackson-module-kotlin")
-        implementation("com.google.cloud:spring-cloud-gcp-pubsub-stream-binder")
-        implementation("com.google.cloud:spring-cloud-gcp-starter")
-        implementation("com.google.cloud:spring-cloud-gcp-starter-pubsub")
-        implementation("com.h2database:h2")
-        implementation("javax.validation:validation-api")
-        implementation("org.jetbrains.kotlin:kotlin-stdlib-jdk8")
-        implementation("org.springframework.boot:spring-boot-starter")
-        implementation("org.springframework.boot:spring-boot-starter-actuator")
-        implementation("org.springframework.boot:spring-boot-starter-data-jpa")
-        implementation("org.springframework.boot:spring-boot-starter-security")
-        implementation("org.springframework.boot:spring-boot-starter-web")
-        implementation("org.springframework.cloud:spring-cloud-function-kotlin")
-        implementation("org.springframework.cloud:spring-cloud-starter-function-web")
-        implementation("org.springframework.cloud:spring-cloud-stream")
-        implementation("org.springframework.cloud:spring-cloud-stream")
-        implementation(project(":red-chariot-command:command-api"))
-        implementation(project(":red-chariot-core"))
-        testImplementation("org.jetbrains.kotlin:kotlin-test")
-        testImplementation("org.springframework.boot:spring-boot-starter-aop")
-        testImplementation("org.springframework.boot:spring-boot-starter-test")
-    }
+@Suppress("DSL_SCOPE_VIOLATION") // IntelliJ IDEA Bug https://youtrack.jetbrains.com/issue/KTIJ-19369
+plugins {
+    alias(libs.plugins.kotlin.spring)
 }
 
-subprojects {
-    dependencies {
-        implementation(project(":red-chariot-query"))
-    }
+dependencies {
+    implementation(libs.jackson.databind)
+    implementation(libs.jackson.module.kotlin)
+    implementation(libs.jjwt.api)
+    implementation(libs.jjwt.impl)
+    implementation(libs.jjwt.jackson)
+    implementation(libs.spring.boot.starter.core)
+    implementation(libs.spring.boot.starter.web)
+    implementation(libs.spring.cloud.gcp.starter.core)
+    implementation(libs.spring.cloud.stream)
+
+    implementation(project(":red-chariot-core"))
+    implementation(project(":red-chariot-command:command-api"))
 }
+
