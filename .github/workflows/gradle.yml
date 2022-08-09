@@ -28,9 +28,9 @@ jobs:
     strategy:
       matrix:
         include:
-          - dockerfile: ./red-chariot-command
+          - dockerfile: ./red-chariot-command/Dockerfile
             image: ghcr.io/red-chariot/red-chariot-kotlin-flutter-cqrs-microservice-main
-          - dockerfile: ./red-chariot-it
+          - dockerfile: ./red-chariot-it/Dockerfile
             image: ghcr.io/red-chariot/red-chariot-kotlin-flutter-cqrs-microservice-integration-tests
     permissions:
       contents: read
