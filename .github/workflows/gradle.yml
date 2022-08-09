@@ -29,9 +29,15 @@ jobs:
       matrix:
         include:
           - dockerfile: ./red-chariot-command/Dockerfile
-            image-category: main
+            image-category: command
+          - dockerfile: ./red-chariot-query/red-chariot-messaging/Dockerfile
+          image-category: query-messaging
+          - dockerfile: ./red-chariot-query/red-chariot-user/Dockerfile
+          image-category: query-user
           - dockerfile: ./red-chariot-it/Dockerfile
-            image-category: integration-tests
+            image-category: it
+          - dockerfile: ./red-chariot-ui/Dockerfile
+            image-category: ui
     permissions:
       contents: read
       packages: write
