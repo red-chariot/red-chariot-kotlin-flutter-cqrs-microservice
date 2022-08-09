@@ -65,5 +65,5 @@ jobs:
         with:
           context: ${{ matrix.context }}
           push: true
-          tags: ${{ env.GITHUB_SHA }}
+          tags: ${{ github.sha }}
           labels: ${{ steps.meta.outputs.labels }}
