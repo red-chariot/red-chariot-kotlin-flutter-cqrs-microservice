@@ -42,15 +42,15 @@ jobs:
           password: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Extract metadata for red-chariot-command Docker
-        id: red-chariot-command-meta
+        id: meta
         uses: docker/metadata-action@v4
         with:
-          images: ${{ env.REGISTRY }}/red-chariot-command
+          images: ${{ env.REGISTRY }}/${{ github.repository }}
 
       - name: Build and push Docker image for red-chariot-command
         uses: docker/build-push-action@v3
         with:
           context: ./red-chariot-command
           push: true
-          tags: ${{ steps.red-chariot-command-meta.outputs.tags }}
-          labels: ${{ steps.red-chariot-command-meta.outputs.labels }}
+          tags: ${{ steps.meta.outputs.tags }}
+          labels: ${{ steps.meta.outputs.labels }}
