@@ -25,6 +25,13 @@ jobs:
 
   docker-build:
     runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        include:
+          - dockerfile: ./red-chariot-command
+            image: ghcr.io/red-chariot/red-chariot-kotlin-flutter-cqrs-microservice-main
+          - dockerfile: ./red-chariot-it
+            image: ghcr.io/red-chariot/red-chariot-kotlin-flutter-cqrs-microservice-integration-tests
     permissions:
       contents: read
       packages: write
@@ -45,12 +52,13 @@ jobs:
         id: meta
         uses: docker/metadata-action@v4
         with:
-          images: ${{ env.REGISTRY }}/${{ github.repository }}
+          images: ${{ matrix.image }}
 
       - name: Build and push Docker image for red-chariot-command
         uses: docker/build-push-action@v3
         with:
-          context: ./red-chariot-command
+          context: .
+          file: ${{ matrix.dockerfile }}
           push: true
           tags: ${{ steps.meta.outputs.tags }}
           labels: ${{ steps.meta.outputs.labels }}
