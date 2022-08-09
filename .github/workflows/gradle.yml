@@ -59,13 +59,11 @@ jobs:
         uses: docker/metadata-action@v4
         with:
           images: ${{ env.REGISTRY }}/${{ github.repository }}-${{ matrix.image-suffix }}
-          tags: |
-            type=ref,event=branch
 
       - name: Build and push Docker image for red-chariot-command
         uses: docker/build-push-action@v3
         with:
           context: ${{ matrix.context }}
           push: true
-          tags: ${{ steps.meta.outputs.tags }}
+          tags: ${{ env.GITHUB_SHA }}
           labels: ${{ steps.meta.outputs.labels }}
