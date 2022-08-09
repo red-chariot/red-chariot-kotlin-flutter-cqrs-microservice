@@ -28,15 +28,15 @@ jobs:
     strategy:
       matrix:
         include:
-          - dockerfile: ./red-chariot-command/Dockerfile
+          - context: ./red-chariot-command
             image-suffix: command
-          - dockerfile: ./red-chariot-query/red-chariot-messaging/Dockerfile
+          - context: ./red-chariot-query/red-chariot-messaging
             image-suffix: query-messaging
-          - dockerfile: ./red-chariot-query/red-chariot-user/Dockerfile
+          - context: ./red-chariot-query/red-chariot-user
             image-suffix: query-user
-          - dockerfile: ./red-chariot-it/Dockerfile
+          - context: ./red-chariot-it
             image-suffix: it
-          - dockerfile: ./red-chariot-ui/Dockerfile
+          - context: ./red-chariot-ui
             image-suffix: ui
     permissions:
       contents: read
@@ -63,8 +63,7 @@ jobs:
       - name: Build and push Docker image for red-chariot-command
         uses: docker/build-push-action@v3
         with:
-          context: .
-          file: ${{ matrix.dockerfile }}
+          context: ${{ matrix.context }}
           push: true
           tags: ${{ steps.meta.outputs.tags }}
           labels: ${{ steps.meta.outputs.labels }}
