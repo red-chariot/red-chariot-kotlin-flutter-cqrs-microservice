@@ -52,5 +52,5 @@ jobs:
         with:
           context: ./red-chariot-command
           push: true
-          tags: user/app:latest
+          tags: ${{ steps.meta.outputs.tags }}
           labels: ${{ steps.meta.outputs.labels }}
