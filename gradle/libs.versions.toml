@@ -20,7 +20,7 @@ selenium = "3.141.59"
 spring-boot = "2.7.2"
 spring-cloud = "2021.0.1"
 spring-dependency-management = "1.0.12.RELEASE"
-spring-doc = "1.6.5"
+spring-doc = "1.6.15"
 spring-mock = "2.0.8"
 wiremock-jre8 = "2.27.2"
 
