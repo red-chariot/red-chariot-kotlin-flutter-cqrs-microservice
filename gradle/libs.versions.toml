@@ -22,7 +22,7 @@ spring-cloud = "2021.0.1"
 spring-dependency-management = "1.0.12.RELEASE"
 spring-doc = "1.6.5"
 spring-mock = "2.0.8"
-wiremock-jre8 = "2.27.2"
+wiremock-jre8 = "2.35.0"
 
 [libraries]
 assertk-jvm = { module = "com.willowtreeapps.assertk:assertk-jvm", version.ref = "assertk-jvm" }
